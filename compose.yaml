@@ -1,0 +1,13 @@
+version: "3"
+services:
+  workspace:
+    build: ./dockers/workspace/
+    env_file: .env
+    ports:
+      - "3002:3002"
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - rust_target_dir:/tmp/target
+volumes:
+  rust_target_dir:

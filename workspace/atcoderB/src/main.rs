@@ -3,6 +3,7 @@ use proconio::input;
 // input例
 // 11
 // 10 9 10 3 100 100 90 80 10 30 10
+
 // output例
 // down 1
 // up 1

@@ -25,19 +25,24 @@ fn main() {
     }
 
     for earning in earnings {
-        if last_earning == None {
-            last_earning = Some(earning);
-            continue;
+        match last_earning {
+            None => {
+                last_earning = Some(earning);
+            },
+            Some(last_earning) => {
+                compare_and_print(last_earning, earning);
+            }
         }
-
-        if earning == last_earning.unwrap() {
-            println!("stay");
-        } else if earning > last_earning.unwrap() {
-            println!("up {}", earning - last_earning.unwrap());
-        } else {
-            println!("down {}", last_earning.unwrap() - earning);
-        }
-
         last_earning = Some(earning);
+    }
+}
+
+fn compare_and_print(yesterday: i32, today: i32) {
+    if yesterday == today {
+        println!("stay")
+    } else if yesterday > today {
+        println!("down {}", yesterday - today)
+    } else {
+        println!("up {}", today - yesterday)
     }
 }

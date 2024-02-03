@@ -28,7 +28,7 @@ fn main() {
         match last_earning {
             None => {
                 last_earning = Some(earning);
-            },
+            }
             Some(last_earning) => {
                 compare_and_print(last_earning, earning);
             }

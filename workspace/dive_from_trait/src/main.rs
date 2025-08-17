@@ -7,9 +7,9 @@ struct Person {
 #[derive(Debug)]
 struct Age(u8);
 
-impl From<u8> for Age {
-    fn from(value: u8) -> Self {
-        Age(value)
+impl Into<Age> for u8 {
+    fn into(self) -> Age {
+        Age(self)
     }
 }
 

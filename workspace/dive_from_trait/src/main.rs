@@ -2,8 +2,7 @@
 struct Person {
     nickname: String,
     age: Age,
-    height: u8,
-    weight: u8,
+    apparent_age: u8, // 見た目年齢
 }
 
 #[derive(Debug)]
@@ -20,8 +19,7 @@ fn main() {
     let yoshida = Person {
         nickname: String::from("yosshi-"),
         age: Age::from(age_value),
-        height: 170,
-        weight: 65,
+        apparent_age: age_value,
     };
     println!("{:?}", yoshida);
 }

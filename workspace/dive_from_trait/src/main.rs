@@ -13,7 +13,7 @@ fn main() {
     let age_value = 35_u8;
     let yoshida = Person {
         nickname: String::from("yosshi-"),
-        age: Age(age_value),
+        age: Age::from(age_value),
         height: 170,
         weight: 65,
     };

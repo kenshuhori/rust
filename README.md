@@ -19,4 +19,12 @@ $ cargo watch -s 'mold -run cargo run'
 
 $ # テストの実行 (ファイルを監視して変更があれば再実行)
 $ cargo watch -s 'mold -run cargo test'
+
+$ # バイナリクレートの作成
+$ cd workspace
+$ cargo new --bin {クレート名}
+
+$ # 作成したバイナリクレートの実行
+$ cd workspace/{クレート名}
+$ cargo run --bin {クレート名}
 ```

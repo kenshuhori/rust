@@ -4,16 +4,6 @@ struct Person {
     age: Age,
 }
 
-impl Person {
-    fn nickname(&self) -> &str {
-        &self.nickname
-    }
-
-    fn age(&self) -> &Age {
-        &self.age
-    }
-}
-
 #[derive(Debug)]
 struct Age(u8);
 
@@ -29,5 +19,5 @@ fn main() {
         nickname: String::from("yosshi-"),
         age: age_value.into(),
     };
-    println!("{} / {}", yoshida.nickname(), yoshida.age().0);
+    println!("{:?}", yoshida);
 }

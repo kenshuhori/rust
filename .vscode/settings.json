@@ -1,0 +1,6 @@
+{
+  "rust-analyzer.linkedProjects": [
+    "/usr/src/app/workspace/dive_2_from_trait/Cargo.toml",
+    "/usr/src/app/workspace/dive_3_try_from_trait/Cargo.toml"
+  ],
+}

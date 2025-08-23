@@ -1,17 +1,7 @@
 #[derive(Debug)]
-struct Person {
-    nickname: String,
-    age: Age,
-}
-
-impl Person {
-    fn nickname(&self) -> &str {
-        &self.nickname
-    }
-
-    fn age(&self) -> &Age {
-        &self.age
-    }
+pub struct Person {
+    pub nickname: String,
+    pub age: Age,
 }
 
 #[derive(Debug)]
@@ -28,8 +18,10 @@ fn main() {
     let nickname_value = "yosshi-";
     let yoshida = Person {
         nickname: String::from(nickname_value),
-        age: Age::from(age_value),
+        age: Age::try_from(age_value),
     };
-    assert_eq!(yoshida.nickname(), nickname_value);
-    assert_eq!(yoshida.age().0, age_value);
+    assert_eq!(yoshida.nickname, nickname_value);
+    assert_eq!(yoshida.age.0, age_value);
+
+    println!("実行は正常に終了しました");
 }

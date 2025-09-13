@@ -2,7 +2,6 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "bungcip.better-toml",
         "ms-azuretools.vscode-docker",
         "ms-vsliveshare.vsliveshare",
         "rust-lang.rust-analyzer"

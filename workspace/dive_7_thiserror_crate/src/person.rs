@@ -1,9 +1,9 @@
 #[derive(thiserror::Error, Debug)]
 pub enum Error {
-    #[error("Invalid age is provided. You provide {0}, but it must be between 0 and 255.")]
-    InvalidAge(i64),
     #[error("Nickname cannot be empty.")]
     EmptyNickname,
+    #[error("You provide {0}, but it must be between {min} and {max}.", min = u8::MIN, max = u8::MAX)]
+    InvalidAge(i64),
 }
 
 pub struct Person {

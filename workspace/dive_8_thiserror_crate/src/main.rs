@@ -1,45 +1,35 @@
-#[derive(thiserror::Error, Debug)]
+mod person;
+
+use person::Person;
+
+#[derive(Debug, thiserror::Error)]
 pub enum Error {
-    #[error("指定した名前が空です")]
-    EmptyName,
-    #[error("指定した年齢は{0}ですが{min}から{max}の間でなければなりません。", min = u8::MIN, max = u8::MAX)]
-    InvalidAge(i64),
+    #[error("IO の問題が発生しました")]
+    Io(#[from] std::io::Error),
 }
 
-pub struct Person {
-    pub name: String,
-    pub age: u8,
-}
-
-impl Person {
-    pub fn new(name: &str, age: i64) -> Result<Self, Error> {
-        if name.len() == 0 {
-            return Err(Error::EmptyName);
-        }
-        let age_u8 = match u8::try_from(age) {
-            Ok(age) => age,
-            Err(_) => return Err(Error::InvalidAge(age)),
-        };
-
-        Ok(Self {
-            name: String::from(name),
-            age: age_u8,
-        })
-    }
+fn read_file() -> Result<String, Error> {
+    let content = std::fs::read_to_string("nonexist.txt")?;
+    Ok(content)
 }
 
 fn main() {
-    let person_with_invalid_name = Person::new(
-        "田中 太郎",
-        -1,
-    );
-
+    let person_with_invalid_name = Person::new("田中 太郎", -1);
     match person_with_invalid_name {
         Ok(_) => {
-            println!("Person created successfully.");
+            println!("成功しました");
         }
         Err(e) => {
-            println!("Error: {}", e);
+            println!("エラーが発生しました: {}", e);
+        }
+    }
+
+    match read_file() {
+        Ok(content) => {
+            println!("ファイルの読み取りに成功しました: {}", content);
+        }
+        Err(e) => {
+            println!("ファイルの読み取りに失敗しました。原因: {}", e);
         }
     }
 }

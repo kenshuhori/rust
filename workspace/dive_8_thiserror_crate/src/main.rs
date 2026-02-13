@@ -1,6 +1,6 @@
 mod person;
 
-use std::error::Error;
+use std::error::Error as _;
 
 use person::Person;
 
@@ -48,13 +48,11 @@ fn main() {
 
     // #[source] の例
     match parse_number("abc") {
-        Ok(_) => {
-            println!("パースに成功しました");
-        }
+        Ok(_) => println!("パースに成功しました"),
         Err(e) => {
             match e.source() {
-                Some(source) => println!("パースに失敗しました。根本のエラー: {}", source),
-                None => println!("パースに失敗しました。根本のエラー情報はありません"),
+                Some(source) => println!("パースに失敗しました。1つ下のエラー: {}", source),
+                None => println!("パースに失敗しました。1つ下のエラー情報はありません"),
             }
         }
     }

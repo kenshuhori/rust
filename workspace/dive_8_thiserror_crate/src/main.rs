@@ -14,8 +14,8 @@ fn read_file() -> Result<String, Error> {
 }
 
 fn main() {
-    let person_with_invalid_name = Person::new("田中 太郎", -1);
-    match person_with_invalid_name {
+    // #[error("…")] の例
+    match Person::new("田中 太郎", -1) {
         Ok(_) => {
             println!("成功しました");
         }
@@ -24,6 +24,7 @@ fn main() {
         }
     }
 
+    // #[from] の例
     match read_file() {
         Ok(content) => {
             println!("ファイルの読み取りに成功しました: {}", content);

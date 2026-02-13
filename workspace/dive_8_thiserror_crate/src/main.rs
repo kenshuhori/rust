@@ -2,7 +2,7 @@
 pub enum Error {
     #[error("指定した名前が空です")]
     EmptyName,
-    #[error("指定した年齢は{0}ですが、{min}から{max}の間でなければなりません。", min = u8::MIN, max = u8::MAX)]
+    #[error("指定した年齢は{0}ですが{min}から{max}の間でなければなりません。", min = u8::MIN, max = u8::MAX)]
     InvalidAge(i64),
 }
 

@@ -13,6 +13,8 @@ pub enum MyError {
         #[source]
         source: std::num::ParseIntError,
     },
+    #[error(transparent)]
+    InvalidFormatForTransparent(#[from] std::num::ParseIntError),
 }
 
 fn read_file() -> Result<String, MyError> {
@@ -23,6 +25,11 @@ fn read_file() -> Result<String, MyError> {
 fn parse_number(s: &str) -> Result<i32, MyError> {
     s.parse::<i32>()
         .map_err(|e| MyError::InvalidFormat { source: e })
+}
+
+fn parse_number_for_transparent(s: &str) -> Result<i32, MyError> {
+    s.parse::<i32>()
+        .map_err(MyError::InvalidFormatForTransparent)
 }
 
 fn main() {
@@ -54,6 +61,14 @@ fn main() {
                 Some(source) => println!("パースに失敗しました。1つ下のエラー: {}", source),
                 None => println!("パースに失敗しました。1つ下のエラー情報はありません"),
             }
+        }
+    }
+
+    // #[transparent] の例
+    match parse_number_for_transparent("abc") {
+        Ok(_) => println!("パースに成功しました"),
+        Err(e) => {
+            println!("パースに失敗しました。1つ下のエラー: {}", e);
         }
     }
 }

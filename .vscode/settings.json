@@ -1,13 +1,14 @@
 {
   "rust-analyzer.linkedProjects": [
     // "/usr/src/app/workspace/dive_2_from_trait/Cargo.toml",
-    // "/usr/src/app/workspace/dive_3_try_from_trait/Cargo.toml"
+    // "/usr/src/app/workspace/dive_3_try_from_trait/Cargo.toml",
     // "/usr/src/app/workspace/dive_4_serde_crate/Cargo.toml",
     // "/usr/src/app/workspace/dive_5_serde_crate/Cargo.toml"
     // "/usr/src/app/workspace/dive_6_serde_crate/Cargo.toml"
     // "/usr/src/app/workspace/dive_7_serde_crate/Cargo.toml",
     // "/usr/src/app/workspace/dive_7_serde_crate/hello_macro/Cargo.toml",
-    // "/usr/src/app/workspace/dive_7_serde_crate/hello_macro_derive/Cargo.toml"
-    "/usr/src/app/workspace/dive_7_thiserror_crate/Cargo.toml"
+    // "/usr/src/app/workspace/dive_7_serde_crate/hello_macro_derive/Cargo.toml",
+    // "/usr/src/app/workspace/dive_7_thiserror_crate/Cargo.toml",
+    "/usr/src/app/workspace/dive_8_thiserror_crate/Cargo.toml"
   ],
 }

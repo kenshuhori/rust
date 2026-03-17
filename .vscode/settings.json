@@ -10,6 +10,7 @@
     // "/usr/src/app/workspace/dive_7_serde_crate/hello_macro_derive/Cargo.toml",
     // "/usr/src/app/workspace/dive_7_thiserror_crate/Cargo.toml",
     // "/usr/src/app/workspace/dive_8_thiserror_crate/Cargo.toml",
-    "/usr/src/app/workspace/dive_9_anyhow_crate/Cargo.toml",
+    // "/usr/src/app/workspace/dive_9_anyhow_crate/Cargo.toml",
+    "/usr/src/app/workspace/dive_10_anyhow_crate/Cargo.toml",
   ],
 }

@@ -3,32 +3,32 @@ use anyhow::Context;
 fn main() {
     match std() {
         Ok(content) => println!("ファイルの内容: {}", content),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 
     match anyhow_context() {
         Ok(content) => println!("ファイルの内容: {}", content),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 
     match anyhow_with_context() {
         Ok(content) => println!("ファイルの内容: {}", content),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 
     match anyhow_anyhow_macro() {
         Ok(content) => println!("ファイルの内容: {}", content),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 
     match anyhow_bail_macro() {
         Ok(content) => println!("ファイルの内容: {}", content),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 
     match anyhow_ensure_macro() {
         Ok(_) => println!("ファイルの内容: "),
-        Err(e) => eprintln!("エラー: {:?}", e),
+        Err(e) => eprintln!("{}", e),
     }
 }
 

@@ -60,8 +60,11 @@ fn anyhow_bail_macro() -> anyhow::Result<String> {
     }
 }
 
-fn anyhow_ensure_macro() -> anyhow::Result<()> {
-    let content = std::fs::read_to_string("config.json");
-    let result = anyhow::ensure!(content.is_ok(), "設定ファイルの読み込みに失敗しました: {:?}", content.err());
-    Ok(result)
+fn anyhow_ensure_macro() -> anyhow::Result<String> {
+    let content = std::fs::read_to_string("config.json")?;
+    anyhow::ensure!(
+        content.len() > 0,
+        "ファイルが空です"
+    );
+    Ok(content)
 }

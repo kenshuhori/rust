@@ -45,8 +45,11 @@ fn anyhow_with_context() -> anyhow::Result<String> {
 }
 
 fn anyhow_anyhow_macro() -> anyhow::Result<String> {
-    std::fs::read_to_string("config.json")
-        .map_err(|e| anyhow::anyhow!("設定ファイルの読み込みに失敗しました: {}", e))
+    let content = std::fs::read_to_string("config.json");
+    match content {
+        Ok(content) => Ok(content),
+        Err(e) => Err(anyhow::anyhow!("設定ファイルの読み込みに失敗しました: {}", e)),
+    }
 }
 
 fn anyhow_bail_macro() -> anyhow::Result<String> {

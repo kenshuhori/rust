@@ -1,3 +1,9 @@
+use tracing::{info, warn};
+use tracing_subscriber;
+
 fn main() {
-    println!("Hello, world!");
+    tracing_subscriber::fmt::init();
+
+    info!("Hello tracing!");
+    warn!("Something might be wrong");
 }

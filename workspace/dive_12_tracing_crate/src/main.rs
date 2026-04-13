@@ -1,4 +1,4 @@
-use tracing::{Level, event, span};
+use tracing::{Level, event, instrument, span};
 use tracing_subscriber;
 
 fn main() {
@@ -14,9 +14,10 @@ fn main() {
     event!(Level::INFO, "back in main span");
 }
 
+#[instrument]
 fn sub(user_id: u64) {
-    let span = span!(Level::INFO, "sub", user_id = user_id);
-    let _enter = span.enter();
+    // let span = span!(Level::INFO, "sub", user_id = user_id);
+    // let _enter = span.enter();
     event!(Level::WARN, "inside sub function");
     event!(Level::ERROR, "inside sub span");
 }

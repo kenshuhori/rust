@@ -20,7 +20,9 @@ fn main() {
 
 fn sub() {
     event!(Level::WARN, "inside sub function");
+
     let span = span!(Level::INFO, "sub_span");
     let _enter = span.enter();
+    
     event!(Level::ERROR, "inside sub span");
 }

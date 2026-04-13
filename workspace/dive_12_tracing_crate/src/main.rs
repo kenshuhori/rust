@@ -1,4 +1,4 @@
-use tracing::{Level, event, span};
+use tracing::{Level, event, instrument, span};
 use tracing_subscriber;
 
 fn main() {
@@ -7,16 +7,17 @@ fn main() {
         .expect("failed to set global default subscriber");
 
     event!(Level::INFO, "hello, tracing!");
-    let span = span!(Level::INFO, "main_span");
+    let span = span!(Level::INFO, "main");
     let _enter = span.enter();
     event!(Level::INFO, "inside span");
     sub();
     event!(Level::INFO, "back in main span");
 }
 
+#[instrument]
 fn sub() {
+    // let span = span!(Level::INFO, "sub");
+    // let _enter = span.enter();
     event!(Level::WARN, "inside sub function");
-    let span = span!(Level::INFO, "sub_span");
-    let _enter = span.enter();
     event!(Level::ERROR, "inside sub span");
 }
